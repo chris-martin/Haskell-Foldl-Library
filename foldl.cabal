@@ -59,3 +59,17 @@ Benchmark benchmarks
         criterion,
         foldl
     GHC-Options: -O2 -Wall -rtsopts -rtsopts -with-rtsopts=-T
+
+test-suite tests
+    Default-Language: Haskell2010
+    Type:             exitcode-stdio-1.0
+    HS-Source-Dirs:   tests
+    Main-Is:          Main.hs
+    GHC-Options:      -Wall -fno-warn-missing-signatures -fno-warn-orphans
+
+    Build-Depends:
+        base                       >= 4.8  && < 5    ,
+        foldl                                        ,
+        QuickCheck                 >= 2.12 && < 2.14 ,
+        test-framework             >= 0.8  && < 0.9  ,
+        test-framework-quickcheck2 >= 0.3  && < 0.4

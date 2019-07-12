@@ -1,7 +1,8 @@
 { mkDerivation, base, bytestring, comonad, containers
 , contravariant, criterion, hashable, mwc-random, primitive
-, profunctors, semigroupoids, semigroups, stdenv, text
-, transformers, unordered-containers, vector, vector-builder
+, profunctors, QuickCheck, semigroupoids, semigroups, stdenv
+, test-framework, test-framework-quickcheck2, text, transformers
+, unordered-containers, vector, vector-builder
 }:
 mkDerivation {
   pname = "foldl";
@@ -11,6 +12,9 @@ mkDerivation {
     base bytestring comonad containers contravariant hashable
     mwc-random primitive profunctors semigroupoids semigroups text
     transformers unordered-containers vector vector-builder
+  ];
+  testHaskellDepends = [
+    base QuickCheck test-framework test-framework-quickcheck2
   ];
   benchmarkHaskellDepends = [ base criterion ];
   description = "Composable, streaming, and efficient left folds";
